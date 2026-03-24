@@ -121,8 +121,7 @@ int main()
             vec.erase(unique(vec.begin(), vec.end()), vec.end());
         }
     }
-    static unordered_map<U128, int> dp[101][1 << 12];
-    dp[0][0].reserve(64);
+    static map<U128, int> dp[101][1 << 12];
     dp[0][0][0] = 1;
     U128 filledUpto = 0;
     for (int i = 0; i < 100; i++)
@@ -142,8 +141,6 @@ int main()
                     continue;
                 int usedNext = used | (1 << k);
                 auto &nextMap = dp[i][usedNext];
-                if (nextMap.empty())
-                    nextMap.reserve(mapAt.size() * 4);
                 auto &posList = placements[k][i];
                 if (posList.empty())
                     continue;
