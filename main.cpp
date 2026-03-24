@@ -121,7 +121,7 @@ int main()
             vec.erase(unique(vec.begin(), vec.end()), vec.end());
         }
     }
-    static map<U128, int> dp[101][1 << 12];
+    static unordered_map<U128, int> dp[101][1 << 12];
     dp[0][0][0] = 1;
     U128 filledUpto = 0;
     for (int i = 0; i < 100; i++)
